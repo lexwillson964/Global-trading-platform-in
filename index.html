@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Trading | Smart Crypto Investment</title>
+  <meta name="description" content="Grow your capital with Global Trading. Live crypto prices & high-return investment plans." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;background:#0a0a0f;color:#fff;line-height:1.6;overflow-x:hidden}
+    header{position:fixed;top:0;width:100%;background:rgba(10,10,15,.85);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06);z-index:1000;padding:18px 0;transition:all .35s ease}
+    header.scrolled{padding:12px 0;background:rgba(10,10,15,.97);box-shadow:0 4px 30px rgba(0,0,0,.4)}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    .nav{display:flex;justify-content:space-between;align-items:center}
+    .logo{display:flex;align-items:center;gap:10px;font-size:1.35rem;font-weight:700;color:#fff;text-decoration:none}
+    .logo span{color:#f5c518}
+    .logo-icon{width:36px;height:36px;background:linear-gradient(135deg,#f5c518,#e6a800);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#000;transition:transform .3s}
+    .logo:hover .logo-icon{transform:rotate(15deg) scale(1.1)}
+    .nav-links{display:flex;gap:28px;list-style:none}
+    .nav-links a{color:#c0c0c8;text-decoration:none;font-weight:500;font-size:.95rem;transition:color .3s;position:relative}
+    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#f5c518;transition:width .3s}
+    .nav-links a:hover{color:#f5c518}
+    .nav-links a:hover::after{width:100%}
+    .btn{display:inline-block;padding:12px 28px;border-radius:50px;font-weight:600;font-size:.95rem;text-decoration:none;transition:all .3s ease;cursor:pointer;border:none;position:relative;overflow:hidden}
+    .btn-primary{background:linear-gradient(135deg,#f5c518,#e6a800);color:#000}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(245,197,24,.4)}
+    .btn-outline{background:transparent;border:1.5px solid rgba(245,197,24,.5);color:#f5c518}
+    .btn-outline:hover{background:rgba(245,197,24,.12);transform:translateY(-2px)}
+    .btn-whatsapp{background:#25D366;color:#fff;display:inline-flex;align-items:center;gap:8px}
+    .btn-whatsapp:hover{background:#1ebe57;transform:translateY(-3px);box-shadow:0 10px 25px rgba(37,211,102,.35)}
+    .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0);animation:ripple-anim .6s linear;pointer-events:none}
+    @keyframes ripple-anim{to{transform:scale(4);opacity:0}}
+    .hero{padding:170px 0 90px;text-align:center;position:relative;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(245,197,24,.12) 0%,transparent 55%);pointer-events:none}
+    .particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+    .particle{position:absolute;width:4px;height:4px;background:#f5c518;border-radius:50%;opacity:.35;animation:float 12s infinite linear}
+    @keyframes float{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:.4}90%{opacity:.3}100%{transform:translateY(-10vh) scale(1);opacity:0}}
+    .hero h1{font-size:clamp(2.5rem,5.5vw,4rem);font-weight:800;line-height:1.12;margin-bottom:22px;opacity:0;transform:translateY(30px);animation:fadeUp .9s ease forwards .2s}
+    .hero h1 span{background:linear-gradient(135deg,#f5c518,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero p{font-size:1.15rem;color:#a0a0b0;max-width:580px;margin:0 auto 40px;opacity:0;transform:translateY(30px);animation:fadeUp .9s ease forwards .4s}
+    .hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;opacity:0;transform:translateY(30px);animation:fadeUp .9s ease forwards .6s}
+    @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+    .reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+    .reveal.active{opacity:1;transform:translateY(0)}
+    .reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}.reveal-delay-5{transition-delay:.5s}
+
+    /* Live Prices */
+    .live-prices{padding:40px 0 70px}
+    .prices-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+    .price-card{background:linear-gradient(145deg,#12121a,#0e0e14);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:24px 20px;display:flex;align-items:center;gap:16px;transition:all .35s ease}
+    .price-card:hover{transform:translateY(-6px);border-color:rgba(245,197,24,.3);box-shadow:0 15px 35px rgba(0,0,0,.35)}
+    .price-icon{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:800;flex-shrink:0}
+    .price-icon.btc{background:rgba(247,147,26,.15);color:#f7931a}
+    .price-icon.eth{background:rgba(98,126,234,.15);color:#627eea}
+    .price-icon.sol{background:rgba(20,241,149,.15);color:#14f195}
+    .price-icon.bnb{background:rgba(243,186,47,.15);color:#f3ba2f}
+    .price-info{flex:1}
+    .price-name{font-size:.9rem;color:#a0a0b0;margin-bottom:2px}
+    .price-value{font-size:1.25rem;font-weight:700}
+    .price-change{font-size:.85rem;font-weight:600;margin-top:2px}
+    .price-change.up{color:#22c55e}
+    .price-change.down{color:#ef4444}
+    .live-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(34,197,94,.12);color:#22c55e;font-size:.75rem;font-weight:600;padding:4px 10px;border-radius:20px;margin-bottom:20px}
+    .live-dot{width:7px;height:7px;background:#22c55e;border-radius:50%;animation:blink 1.5s infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+    .plans{padding:70px 0 100px}
+    .section-title{text-align:center;margin-bottom:50px}
+    .section-title h2{font-size:2.3rem;font-weight:700;margin-bottom:12px}
+    .section-title p{color:#a0a0b0;font-size:1.05rem}
+    .plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+    .plan-card{background:linear-gradient(145deg,#12121a,#0e0e14);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:34px 24px;text-align:center;transition:all .4s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden}
+    .plan-card::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(245,197,24,.08),transparent);transition:left .6s}
+    .plan-card:hover::before{left:100%}
+    .plan-card:hover{transform:translateY(-12px) scale(1.02);border-color:rgba(245,197,24,.45);box-shadow:0 25px 50px rgba(0,0,0,.45)}
+    .plan-card.popular{border-color:rgba(245,197,24,.55);background:linear-gradient(145deg,#16161f,#12121a)}
+    .popular-badge{position:absolute;top:16px;right:16px;background:linear-gradient(135deg,#f5c518,#e6a800);color:#000;font-size:.7rem;font-weight:700;padding:5px 12px;border-radius:20px;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+    .plan-amount{font-size:1.85rem;font-weight:800;margin-bottom:8px}
+    .plan-label{color:#888;font-size:.85rem;margin-bottom:22px}
+    .plan-profit{font-size:1.55rem;font-weight:700;color:#22c55e;margin-bottom:6px}
+    .plan-profit-label{color:#a0a0b0;font-size:.85rem;margin-bottom:26px}
+    .plan-card .btn{width:100%;padding:13px;font-size:.9rem}
+    .features{padding:90px 0;background:#0c0c12}
+    .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px}
+    .feature-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:32px 26px;text-align:center;transition:all .4s ease}
+    .feature-card:hover{transform:translateY(-8px);background:rgba(255,255,255,.05);border-color:rgba(245,197,24,.25)}
+    .feature-icon{width:60px;height:60px;background:rgba(245,197,24,.12);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.6rem;transition:transform .4s}
+    .feature-card:hover .feature-icon{transform:scale(1.15) rotate(5deg)}
+    .feature-card h3{font-size:1.15rem;margin-bottom:10px}
+    .feature-card p{color:#a0a0b0;font-size:.95rem}
+    .how{padding:90px 0 80px}
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:36px}
+    .step{text-align:center}
+    .step-number{width:54px;height:54px;background:linear-gradient(135deg,#f5c518,#e6a800);color:#000;font-weight:800;font-size:1.3rem;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;transition:transform .4s}
+    .step:hover .step-number{transform:scale(1.15)}
+    .step h3{margin-bottom:10px;font-size:1.25rem}
+    .step p{color:#a0a0b0;font-size:.95rem}
+    .contact{padding:90px 0 110px;background:#0c0c12}
+    .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;max-width:900px;margin:0 auto}
+    .contact-card{background:linear-gradient(145deg,#12121a,#0e0e14);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:36px 28px;text-align:center;transition:all .4s ease}
+    .contact-card:hover{transform:translateY(-8px);border-color:rgba(245,197,24,.35);box-shadow:0 20px 40px rgba(0,0,0,.35)}
+    .contact-icon{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:1.8rem}
+    .contact-icon.whatsapp{background:rgba(37,211,102,.15)}
+    .contact-icon.phone{background:rgba(245,197,24,.15)}
+    .contact-icon.email{background:rgba(59,130,246,.15)}
+    .contact-card h3{font-size:1.2rem;margin-bottom:8px}
+    .contact-card p{color:#a0a0b0;font-size:.95rem;margin-bottom:20px}
+    .contact-card a{color:#f5c518;text-decoration:none;font-weight:600;font-size:1.05rem;transition:color .3s}
+    .contact-card a:hover{color:#ffd700}
+    .cta{padding:90px 0;text-align:center;background:linear-gradient(180deg,#0c0c12,#0a0a0f)}
+    .cta h2{font-size:2.1rem;margin-bottom:16px}
+    .cta p{color:#a0a0b0;margin-bottom:30px}
+    .whatsapp-float{position:fixed;bottom:28px;right:28px;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 25px rgba(37,211,102,.45);z-index:999;transition:all .3s ease;text-decoration:none;animation:whatsapp-pulse 2.5s infinite}
+    .whatsapp-float:hover{transform:scale(1.12);box-shadow:0 8px 30px rgba(37,211,102,.6)}
+    .whatsapp-float svg{width:32px;height:32px;fill:#fff}
+    @keyframes whatsapp-pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+    footer{padding:40px 0;border-top:1px solid rgba(255,255,255,.06);text-align:center;color:#666;font-size:.9rem}
+    @media(max-width:768px){.nav-links{display:none}.hero{padding:140px 0 70px}.plans-grid{grid-template-columns:1fr;max-width:360px;margin:0 auto}.whatsapp-float{bottom:20px;right:20px;width:54px;height:54px}.whatsapp-float svg{width:28px;height:28px}}
+  </style>
+</head>
+<body>
+
+<header id="header">
+  <div class="container">
+    <nav class="nav">
+      <a href="#" class="logo"><div class="logo-icon">G</div>Global <span>Trading</span></a>
+      <ul class="nav-links">
+        <li><a href="#prices">Live Prices</a></li>
+        <li><a href="#plans">Plans</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#plans" class="btn btn-primary">Get Started</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="particles" id="particles"></div>
+  <div class="container">
+    <h1>Trade Smarter,<br><span>Earn More</span></h1>
+    <p>Join thousands of investors growing their capital with secure, high-return crypto investment plans.</p>
+    <div class="hero-buttons">
+      <a href="#plans" class="btn btn-primary">View Investment Plans</a>
+      <a href="#contact" class="btn btn-outline">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE PRICES SECTION -->
+<section class="live-prices" id="prices">
+  <div class="container">
+    <div class="section-title reveal">
+      <div class="live-badge"><span class="live-dot"></span> LIVE MARKET</div>
+      <h2>Live Crypto Prices</h2>
+      <p>Real-time prices updated every 30 seconds</p>
+    </div>
+    <div class="prices-grid" id="prices-grid">
+      <!-- Cards will be filled by JavaScript -->
+      <div class="price-card">
+        <div class="price-icon btc">₿</div>
+        <div class="price-info">
+          <div class="price-name">Bitcoin (BTC)</div>
+          <div class="price-value" id="btc-price">Loading...</div>
+          <div class="price-change" id="btc-change">—</div>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-icon eth">Ξ</div>
+        <div class="price-info">
+          <div class="price-name">Ethereum (ETH)</div>
+          <div class="price-value" id="eth-price">Loading...</div>
+          <div class="price-change" id="eth-change">—</div>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-icon sol">◎</div>
+        <div class="price-info">
+          <div class="price-name">Solana (SOL)</div>
+          <div class="price-value" id="sol-price">Loading...</div>
+          <div class="price-change" id="sol-change">—</div>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-icon bnb">BNB</div>
+        <div class="price-info">
+          <div class="price-name">BNB</div>
+          <div class="price-value" id="bnb-price">Loading...</div>
+          <div class="price-change" id="bnb-change">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="plans" id="plans">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>Investment Plans</h2>
+      <p>Choose your plan and start growing your capital today</p>
+    </div>
+    <div class="plans-grid">
+      <div class="plan-card reveal reveal-delay-1">
+        <div class="plan-amount">₹1,000</div>
+        <div class="plan-label">Investment Amount</div>
+        <div class="plan-profit" data-target="11999">₹0</div>
+        <div class="plan-profit-label">Expected Profit</div>
+        <a href="https://wa.me/916290662261?text=Hi%2C%20I%20want%20to%20invest%20%E2%82%B91%2C000" class="btn btn-primary" target="_blank">Invest Now</a>
+      </div>
+      <div class="plan-card reveal reveal-delay-2">
+        <div class="plan-amount">₹2,000</div>
+        <div class="plan-label">Investment Amount</div>
+        <div class="plan-profit" data-target="25000">₹0</div>
+        <div class="plan-profit-label">Expected Profit</div>
+        <a href="https://wa.me/916290662261?text=Hi%2C%20I%20want%20to%20invest%20%E2%82%B92%2C000" class="btn btn-primary" target="_blank">Invest Now</a>
+      </div>
+      <div class="plan-card reveal reveal-delay-3">
+        <div class="plan-amount">₹3,000</div>
+        <div class="plan-label">Investment Amount</div>
+        <div class="plan-profit" data-target="45000">₹0</div>
+        <div class="plan-profit-label">Expected Profit</div>
+        <a href="https://wa.me/916290662261?text=Hi%2C%20I%20want%20to%20invest%20%E2%82%B93%2C000" class="btn btn-primary" target="_blank">Invest Now</a>
+      </div>
+      <div class="plan-card popular reveal reveal-delay-4">
+        <div class="popular-badge">Most Popular</div>
+        <div class="plan-amount">₹5,000</div>
+        <div class="plan-label">Investment Amount</div>
+        <div class="plan-profit" data-target="69000">₹0</div>
+        <div class="plan-profit-label">Expected Profit</div>
+        <a href="https://wa.me/916290662261?text=Hi%2C%20I%20want%20to%20invest%20%E2%82%B95%2C000" class="btn btn-primary" target="_blank">Invest Now</a>
+      </div>
+      <div class="plan-card reveal reveal-delay-5">
+        <div class="plan-amount">₹10,000</div>
+        <div class="plan-label">Investment Amount</div>
+        <div class="plan-profit" data-target="90000">₹0</div>
+        <div class="plan-profit-label">Expected Profit</div>
+        <a href="https://wa.me/916290662261?text=Hi%2C%20I%20want%20to%20invest%20%E2%82%B910%2C000" class="btn btn-primary" target="_blank">Invest Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>Why Choose Us</h2>
+      <p>Built for security, speed and growth</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">🔒</div>
+        <h3>Bank-Level Security</h3>
+        <p>Your funds are protected with advanced encryption and secure systems.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon">⚡</div>
+        <h3>Fast Withdrawals</h3>
+        <p>Quick and hassle-free withdrawals directly to your account.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-icon">📈</div>
+        <h3>High Returns</h3>
+        <p>Competitive profit rates designed to maximize your capital growth.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-4">
+        <div class="feature-icon">🕒</div>
+        <h3>24/7 Support</h3>
+        <p>Our team is available round the clock to assist you anytime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>How It Works</h2>
+      <p>Start investing in just 3 simple steps</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal reveal-delay-1">
+        <div class="step-number">1</div>
+        <h3>Choose a Plan</h3>
+        <p>Select the investment amount that suits your goals.</p>
+      </div>
+      <div class="step reveal reveal-delay-2">
+        <div class="step-number">2</div>
+        <h3>Make Payment</h3>
+        <p>Complete a secure payment to activate your plan.</p>
+      </div>
+      <div class="step reveal reveal-delay-3">
+        <div class="step-number">3</div>
+        <h3>Earn Profits</h3>
+        <p>Watch your capital grow and withdraw anytime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>Contact Us</h2>
+      <p>We're here to help you get started</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card reveal reveal-delay-1">
+        <div class="contact-icon whatsapp">💬</div>
+        <h3>WhatsApp</h3>
+        <p>Chat with us instantly for quick support</p>
+        <a href="https://wa.me/916290662261" target="_blank">Message on WhatsApp</a>
+      </div>
+      <div class="contact-card reveal reveal-delay-2">
+        <div class="contact-icon phone">📞</div>
+        <h3>Phone</h3>
+        <p>Call us for personal assistance</p>
+        <a href="tel:+916290662261">+91 62906 62261</a>
+      </div>
+      <div class="contact-card reveal reveal-delay-3">
+        <div class="contact-icon email">✉️</div>
+        <h3>Email</h3>
+        <p>Send us your queries anytime</p>
+        <a href="mailto:support@globaltrading.com">support@globaltrading.com</a>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px" class="reveal">
+      <a href="https://wa.me/916290662261?text=Hi%2C%20I%20want%20to%20know%20more%20about%20investment%20plans" class="btn btn-whatsapp" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container reveal">
+    <h2>Ready to Start Growing?</h2>
+    <p>Join Global Trading today and take control of your financial future.</p>
+    <a href="#plans" class="btn btn-primary">View Plans Now</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Global Trading. All rights reserved.</p>
+    <p style="margin-top:8px;font-size:.8rem;color:#555">Returns are projected based on market performance. Past performance is not a guarantee of future results.</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/916290662261?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Global%20Trading" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // Sticky Header
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 40));
+
+  // Smooth Scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      const t = document.querySelector(this.getAttribute('href'));
+      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Scroll Reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => obs.observe(el));
+
+  // Number Counters
+  const counters = document.querySelectorAll('.plan-profit');
+  let counted = false;
+  const cObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting && !counted) {
+      counted = true;
+      counters.forEach(c => {
+        const target = +c.getAttribute('data-target');
+        const start = performance.now();
+        function update(now) {
+          const p = Math.min((now - start) / 1800, 1);
+          const ease = 1 - Math.pow(2, -10 * p);
+          c.textContent = '₹' + Math.floor(ease * target).toLocaleString('en-IN');
+          if (p < 1) requestAnimationFrame(update);
+          else c.textContent = '₹' + target.toLocaleString('en-IN');
+        }
+        requestAnimationFrame(update);
+      });
+    }
+  }, { threshold: 0.4 });
+  if (counters.length) cObs.observe(document.querySelector('.plans-grid'));
+
+  // Button Ripple
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      const r = this.getBoundingClientRect();
+      const s = Math.max(r.width, r.height);
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple';
+      ripple.style.width = ripple.style.height = s + 'px';
+      ripple.style.left = (e.clientX - r.left - s / 2) + 'px';
+      ripple.style.top = (e.clientY - r.top - s / 2) + 'px';
+      this.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+    });
+  });
+
+  // Particles
+  const pc = document.getElementById('particles');
+  for (let i = 0; i < 25; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDelay = Math.random() * 12 + 's';
+    p.style.animationDuration = (8 + Math.random() * 8) + 's';
+    p.style.width = p.style.height = (2 + Math.random() * 3) + 'px';
+    pc.appendChild(p);
+  }
+
+  // ===== LIVE CRYPTO PRICES =====
+  async function fetchPrices() {
+    try {
+      const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,binancecoin&vs_currencies=inr&include_24hr_change=true');
+      const data = await res.json();
+
+      // BTC
+      document.getElementById('btc-price').textContent = '₹' + Math.round(data.bitcoin.inr).toLocaleString('en-IN');
+      const btcChange = data.bitcoin.inr_24h_change;
+      const btcEl = document.getElementById('btc-change');
+      btcEl.textContent = (btcChange >= 0 ? '▲ +' : '▼ ') + btcChange.toFixed(2) + '%';
+      btcEl.className = 'price-change ' + (btcChange >= 0 ? 'up' : 'down');
+
+      // ETH
+      document.getElementById('eth-price').textContent = '₹' + Math.round(data.ethereum.inr).toLocaleString('en-IN');
+      const ethChange = data.ethereum.inr_24h_change;
+      const ethEl = document.getElementById('eth-change');
+      ethEl.textContent = (ethChange >= 0 ? '▲ +' : '▼ ') + ethChange.toFixed(2) + '%';
+      ethEl.className = 'price-change ' + (ethChange >= 0 ? 'up' : 'down');
+
+      // SOL
+      document.getElementById('sol-price').textContent = '₹' + Math.round(data.solana.inr).toLocaleString('en-IN');
+      const solChange = data.solana.inr_24h_change;
+      const solEl = document.getElementById('sol-change');
+      solEl.textContent = (solChange >= 0 ? '▲ +' : '▼ ') + solChange.toFixed(2) + '%';
+      solEl.className = 'price-change ' + (solChange >= 0 ? 'up' : 'down');
+
+      // BNB
+      document.getElementById('bnb-price').textContent = '₹' + Math.round(data.binancecoin.inr).toLocaleString('en-IN');
+      const bnbChange = data.binancecoin.inr_24h_change;
+      const bnbEl = document.getElementById('bnb-change');
+      bnbEl.textContent = (bnbChange >= 0 ? '▲ +' : '▼ ') + bnbChange.toFixed(2) + '%';
+      bnbEl.className = 'price-change ' + (bnbChange >= 0 ? 'up' : 'down');
+
+    } catch (err) {
+      console.log('Price fetch error:', err);
+    }
+  }
+
+  // First load + every 30 seconds
+  fetchPrices();
+  setInterval(fetchPrices, 30000);
+</script>
+</body>
+</html>
