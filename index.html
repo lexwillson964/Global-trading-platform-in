@@ -1,342 +1,535 @@
-!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Global Trading | Smart Crypto Investment</title>
-  <meta name="description" content="Grow your capital with Global Trading. Live crypto prices & high-return investment plans." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <meta name="description" content="Grow your capital with Global Trading. Live crypto prices and investment plans.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header id="header">
-  <div class="container">
-    <nav class="nav">
-      <a href="#" class="logo"><div class="logo-icon">G</div>Global <span>Trading</span></a>
-      <ul class="nav-links">
-        <li><a href="#prices">Live Prices</a></li>
-        <li><a href="#plans">Plans</a></li>
-        <li><a href="#client-activity">Clients</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <a href="#plans" class="btn btn-primary">Get Started</a>
+<!-- HEADER -->
+<header class="header">
+  <div class="container nav-container">
+
+    <a href="#" class="logo">
+      GLOBAL <span>TRADING</span>
+    </a>
+
+    <nav class="navbar">
+      <a href="#live-markets">Live Markets</a>
+      <a href="#plans">Investment Plans</a>
+      <a href="#features">Features</a>
+      <a href="#contact">Contact</a>
     </nav>
+
+    <a href="#plans" class="nav-btn">Get Started</a>
+
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="particles" id="particles"></div>
-  <div class="container">
-    <h1>Trade Smarter,<br><span>Earn More</span></h1>
-    <p>Join thousands of investors growing their capital with secure, high-return crypto investment plans.</p>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+
+  <div class="hero-content">
+
+    <span class="hero-tag">WELCOME TO GLOBAL TRADING</span>
+
+    <h1>
+      Trade Smarter,<br>
+      <span>Earn More.</span>
+    </h1>
+
+    <p>
+      Discover investment opportunities with Global Trading.
+      Explore markets and investment plans from one platform.
+    </p>
+
     <div class="hero-buttons">
-      <a href="#plans" class="btn btn-primary">View Investment Plans</a>
-      <a href="#contact" class="btn btn-outline">Contact Us</a>
+      <a href="#plans" class="primary-btn">View Investment Plans</a>
+      <a href="#contact" class="secondary-btn">Contact Us</a>
     </div>
-  </div>
-</section>
 
-<!-- LIVE PRICES SECTION -->
-<section class="live-prices" id="prices">
-  <div class="container">
-    <div class="section-title reveal">
-      <div class="live-badge"><span class="live-dot"></span> LIVE MARKET</div>
-      <h2>Live Crypto Prices</h2>
-      <p>Real-time prices updated every 30 seconds</p>
-    </div>
-    <div class="prices-grid" id="prices-grid">
-      <!-- Cards will be filled by JavaScript -->
-      <div class="price-card">
-        <div class="price-icon btc">₿</div>
-        <div class="price-info">
-          <div class="price-name">Bitcoin (BTC)</div>
-          <div class="price-value" id="btc-price">Loading...</div>
-          <div class="price-change" id="btc-change">—</div>
-        </div>
-      </div>
-      <div class="price-card">
-        <div class="price-icon eth">Ξ</div>
-        <div class="price-info">
-          <div class="price-name">Ethereum (ETH)</div>
-          <div class="price-value" id="eth-price">Loading...</div>
-          <div class="price-change" id="eth-change">—</div>
-        </div>
-      </div>
-      <div class="price-card">
-        <div class="price-icon sol">◎</div>
-        <div class="price-info">
-          <div class="price-name">Solana (SOL)</div>
-          <div class="price-value" id="sol-price">Loading...</div>
-          <div class="price-change" id="sol-change">—</div>
-        </div>
-      </div>
-      <div class="price-card">
-        <div class="price-icon bnb">BNB</div>
-        <div class="price-info">
-          <div class="price-name">BNB</div>
-          <div class="price-value" id="bnb-price">Loading...</div>
-          <div class="price-change" id="bnb-change">—</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="plans" id="plans">
-  <div class="container">
-    <div class="section-title reveal">
-      <h2>Investment Plans</h2>
-      <p>Choose your plan and start growing your capital today</p>
-    </div>
-    <div class="plans-grid">
-      <div class="plan-card reveal reveal-delay-1">
-        <div class="plan-amount">₹1,000</div>
-        <div class="plan-label">Investment Amount</div>
-        <div class="plan-profit" data-target="11999">₹0</div>
-        <div class="plan-profit-label">Expected Profit</div>
-        <a href="https://wa.me/916290662261?text=Hi%2C%20I%20want%20to%20invest%20%E2%82%B91%2C000" class="btn btn-primary" target="_blank">Invest Now</a>
-      </div>
-      <div class="plan-card reveal reveal-delay-2">
-        <div class="plan-amount">₹2,000</div>
-        <div class="plan-label">Investment Amount</div>
-        <div class="plan-profit" data-target="25000">₹0</div>
-        <div class="plan-profit-label">Expected Profit</div>
-        <a href="https://wa.me/916290662261?text=Hi%2C%20I%20want%20to%20invest%20%E2%82%B92%2C000" class="btn btn-primary" target="_blank">Invest Now</a>
-      </div>
-      <div class="plan-card reveal reveal-delay-3">
-        <div class="plan-amount">₹3,000</div>
-        <div class="plan-label">Investment Amount</div>
-        <div class="plan-profit" data-target="45000">₹0</div>
-        <div class="plan-profit-label">Expected Profit</div>
-        <a href="https://wa.me/916290662261?text=Hi%2C%20I%20want%20to%20invest%20%E2%82%B93%2C000" class="btn btn-primary" target="_blank">Invest Now</a>
-      </div>
-      <div class="plan-card popular reveal reveal-delay-4">
-        <div class="popular-badge">Most Popular</div>
-        <div class="plan-amount">₹5,000</div>
-        <div class="plan-label">Investment Amount</div>
-        <div class="plan-profit" data-target="69000">₹0</div>
-        <div class="plan-profit-label">Expected Profit</div>
-        <a href="https://wa.me/916290662261?text=Hi%2C%20I%20want%20to%20invest%20%E2%82%B95%2C000" class="btn btn-primary" target="_blank">Invest Now</a>
-      </div>
-      <div class="plan-card reveal reveal-delay-5">
-        <div class="plan-amount">₹10,000</div>
-        <div class="plan-label">Investment Amount</div>
-        <div class="plan-profit" data-target="90000">₹0</div>
-        <div class="plan-profit-label">Expected Profit</div>
-        <a href="https://wa.me/916290662261?text=Hi%2C%20I%20want%20to%20invest%20%E2%82%B910%2C000" class="btn btn-primary" target="_blank">Invest Now</a>
-      </div>
-    </div>
   </div>
 
 </section>
 
-<!-- Recent Client Activity / Testimonials: DEMO DATA -->
-<section class="client-activity" id="client-activity">
-  <div class="container">
-    <div class="section-title reveal">
-      <span class="demo-badge">CLIENT RESULTS</span>
-      <h2>Recent Client Activity</h2>
-      <p>Recent client activity and reported trade results.</p>
-    </div>
 
-    <div class="activity-grid">
-      <article class="activity-card reveal">
-        <div class="client-top">
-          <div class="client-avatar">BT</div>
-          <div>
-            <h3>Bhoomi Tyagi</h3>
-            <span>Client result</span>
-          </div>
-          <span class="status-dot">Result</span>
-        </div>
-        <div class="trade-row">
-          <span>BTC/INR · ₹2,000</span>
-          <strong>₹35,000</strong>
-        </div>
-        <div class="trade-time">Result shared by client</div>
-      </article>
+<!-- LIVE MARKET SECTION -->
+<section class="live-markets" id="live-markets">
 
-      <article class="activity-card reveal">
-        <div class="client-top">
-          <div class="client-avatar">MS</div>
-          <div>
-            <h3>Mohan Sharma</h3>
-            <span>Client result</span>
-          </div>
-          <span class="status-dot">Result</span>
-        </div>
-        <div class="trade-row">
-          <span>ETH/INR · ₹5,000</span>
-          <strong>₹66,499</strong>
-        </div>
-        <div class="trade-time">Result shared by client</div>
-      </article>
+  <div class="market-heading">
 
-      <article class="activity-card reveal">
-        <div class="client-top">
-          <div class="client-avatar">MA</div>
-          <div>
-            <h3>Manisha Agarwal</h3>
-            <span>Client result</span>
-          </div>
-          <span class="status-dot">Result</span>
-        </div>
-        <div class="trade-row">
-          <span>SOL/INR · ₹3,000</span>
-          <strong>₹48,599</strong>
-        </div>
-        <div class="trade-time">Result shared by client</div>
-      </article>
+    <span class="market-tag">LIVE MARKET</span>
 
-      <article class="activity-card reveal">
-        <div class="client-top">
-          <div class="client-avatar">RV</div>
-          <div>
-            <h3>Rahul Verma</h3>
-            <span>Client result</span>
-          </div>
-          <span class="status-dot">Result</span>
-        </div>
-        <div class="trade-row">
-          <span>BTC/INR · ₹5,000</span>
-          <strong>₹72,000</strong>
-        </div>
-        <div class="trade-time">Result shared by client</div>
-      </article>
+    <h2>Explore Global Markets</h2>
 
-      <article class="activity-card reveal">
-        <div class="client-top">
-          <div class="client-avatar">PS</div>
-          <div>
-            <h3>Priya Singh</h3>
-            <span>Client result</span>
-          </div>
-          <span class="status-dot">Result</span>
-        </div>
-        <div class="trade-row">
-          <span>ETH/INR · ₹2,000</span>
-          <strong>₹28,500</strong>
-        </div>
-        <div class="trade-time">Result shared by client</div>
-      </article>
-    </div>
+    <p>
+      Track live market movements across global trading markets.
+    </p>
 
-<section class="features" id="features">
-  <div class="container">
-    <div class="section-title reveal">
-      <h2>Why Choose Us</h2>
-      <p>Built for security, speed and growth</p>
-    </div>
-    <div class="features-grid">
-      <div class="feature-card reveal reveal-delay-1">
-        <div class="feature-icon">🔒</div>
-        <h3>Bank-Level Security</h3>
-        <p>Your funds are protected with advanced encryption and secure systems.</p>
-      </div>
-      <div class="feature-card reveal reveal-delay-2">
-        <div class="feature-icon">⚡</div>
-        <h3>Fast Withdrawals</h3>
-        <p>Quick and hassle-free withdrawals directly to your account.</p>
-      </div>
-      <div class="feature-card reveal reveal-delay-3">
-        <div class="feature-icon">📈</div>
-        <h3>High Returns</h3>
-        <p>Competitive profit rates designed to maximize your capital growth.</p>
-      </div>
-      <div class="feature-card reveal reveal-delay-4">
-        <div class="feature-icon">🕒</div>
-        <h3>24/7 Support</h3>
-        <p>Our team is available round the clock to assist you anytime.</p>
-      </div>
-    </div>
   </div>
+
+
+  <div class="market-panel">
+
+    <div class="market-controls">
+
+      <div class="market-field">
+
+        <label for="marketSelect">Select Market</label>
+
+        <select id="marketSelect">
+
+          <option value="BINANCE:BTCUSDT">Bitcoin / USDT</option>
+          <option value="BINANCE:ETHUSDT">Ethereum / USDT</option>
+          <option value="BINANCE:SOLUSDT">Solana / USDT</option>
+          <option value="BINANCE:BNBUSDT">BNB / USDT</option>
+
+          <option value="FX:EURUSD">EUR / USD</option>
+          <option value="FX:GBPUSD">GBP / USD</option>
+          <option value="FX:USDJPY">USD / JPY</option>
+
+          <option value="OANDA:XAUUSD">Gold / USD</option>
+          <option value="OANDA:XAGUSD">Silver / USD</option>
+
+          <option value="NASDAQ:AAPL">Apple Stock</option>
+          <option value="NASDAQ:TSLA">Tesla Stock</option>
+          <option value="NASDAQ:NVDA">NVIDIA Stock</option>
+
+          <option value="NSE:RELIANCE">Reliance Industries</option>
+          <option value="NSE:TCS">TCS</option>
+          <option value="NSE:NIFTY">Nifty 50</option>
+
+        </select>
+
+      </div>
+
+
+      <div class="market-field">
+
+        <label for="timeframeSelect">Timeframe</label>
+
+        <select id="timeframeSelect">
+
+          <option value="1">1 Minute</option>
+          <option value="5">5 Minutes</option>
+          <option value="15" selected>15 Minutes</option>
+          <option value="60">1 Hour</option>
+          <option value="240">4 Hours</option>
+          <option value="D">1 Day</option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+
+    <div class="chart-title">
+
+      <div>
+        <h3 id="selectedMarketName">Bitcoin / USDT</h3>
+        <span>TradingView Market Chart</span>
+      </div>
+
+      <span class="live-indicator">
+        <i></i> LIVE
+      </span>
+
+    </div>
+
+
+    <div class="trading-chart">
+
+      <iframe
+        id="tradingViewChart"
+        title="Global Trading Live Market Chart"
+        src="https://www.tradingview.com/widgetembed/?symbol=BINANCE%3ABTCUSDT&interval=15&theme=dark&style=1&timezone=Asia%2FKolkata&withdateranges=1&hide_side_toolbar=0&allow_symbol_change=1&save_image=0&locale=en"
+        loading="lazy"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+
+    </div>
+
+    <p class="chart-disclaimer">
+      Market data availability and update speed depend on the
+      exchange and TradingView data feed.
+    </p>
+
+  </div>
+
 </section>
 
-<section class="how" id="how">
-  <div class="container">
-    <div class="section-title reveal">
-      <h2>How It Works</h2>
-      <p>Start investing in just 3 simple steps</p>
-    </div>
-    <div class="steps">
-      <div class="step reveal reveal-delay-1">
-        <div class="step-number">1</div>
-        <h3>Choose a Plan</h3>
-        <p>Select the investment amount that suits your goals.</p>
-      </div>
-      <div class="step reveal reveal-delay-2">
-        <div class="step-number">2</div>
-        <h3>Make Payment</h3>
-        <p>Complete a secure payment to activate your plan.</p>
-      </div>
-      <div class="step reveal reveal-delay-3">
-        <div class="step-number">3</div>
-        <h3>Earn Profits</h3>
-        <p>Watch your capital grow and withdraw anytime.</p>
-      </div>
-    </div>
+
+<!-- INVESTMENT PLANS -->
+<section class="plans-section" id="plans">
+
+  <div class="section-heading">
+
+    <span class="market-tag">OUR INVESTMENT PLANS</span>
+
+    <h2>Choose Your Investment Plan</h2>
+
+    <p>Explore the available investment amounts and target returns.</p>
+
   </div>
+
+
+  <div class="plans-grid">
+
+    <div class="plan-card">
+      <h3>Starter Plan</h3>
+      <h2>₹1,000</h2>
+      <p>Target Return</p>
+      <h3>₹11,999</h3>
+      <a href="https://wa.me/916290662261" target="_blank">Invest Now</a>
+    </div>
+
+
+    <div class="plan-card">
+      <h3>Basic Plan</h3>
+      <h2>₹2,000</h2>
+      <p>Target Return</p>
+      <h3>₹25,000</h3>
+      <a href="https://wa.me/916290662261" target="_blank">Invest Now</a>
+    </div>
+
+
+    <div class="plan-card">
+      <h3>Standard Plan</h3>
+      <h2>₹3,000</h2>
+      <p>Target Return</p>
+      <h3>₹45,000</h3>
+      <a href="https://wa.me/916290662261" target="_blank">Invest Now</a>
+    </div>
+
+
+    <div class="plan-card">
+      <h3>Premium Plan</h3>
+      <h2>₹5,000</h2>
+      <p>Target Return</p>
+      <h3>₹69,000</h3>
+      <a href="https://wa.me/916290662261" target="_blank">Invest Now</a>
+    </div>
+
+
+    <div class="plan-card">
+      <h3>VIP Plan</h3>
+      <h2>₹10,000</h2>
+      <p>Target Return</p>
+      <h3>₹90,000</h3>
+      <a href="https://wa.me/916290662261" target="_blank">Invest Now</a>
+    </div>
+
+  </div>
+
+  <p class="plan-disclaimer">
+    Targets are illustrative and are not guaranteed returns.
+    Trading and investments involve risk.
+  </p>
+
 </section>
 
-<section class="contact" id="contact">
-  <div class="container">
-    <div class="section-title reveal">
-      <h2>Contact Us</h2>
-      <p>We're here to help you get started</p>
+
+<!-- FEATURES -->
+<section class="features-section" id="features">
+
+  <div class="section-heading">
+
+    <span class="market-tag">WHY CHOOSE US</span>
+
+    <h2>Our Platform Features</h2>
+
+  </div>
+
+
+  <div class="features-grid">
+
+    <div class="feature-card">
+      <h3>Bank-Level Security</h3>
+      <p>Security-focused platform experience.</p>
     </div>
-    <div class="contact-grid">
-      <div class="contact-card reveal reveal-delay-1">
-        <div class="contact-icon whatsapp">💬</div>
-        <h3>WhatsApp</h3>
-        <p>Chat with us instantly for quick support</p>
-        <a href="https://wa.me/916290662261" target="_blank">Message on WhatsApp</a>
-      </div>
-      <div class="contact-card reveal reveal-delay-2">
-        <div class="contact-icon phone">📞</div>
-        <h3>Phone</h3>
-        <p>Call us for personal assistance</p>
-        <a href="tel:+916290662261">+91 62906 62261</a>
-      </div>
-      <div class="contact-card reveal reveal-delay-3">
-        <div class="contact-icon email">✉️</div>
-        <h3>Email</h3>
-        <p>Send us your queries anytime</p>
-        <a href="mailto:support@globaltrading.com">support@globaltrading.com</a>
-      </div>
+
+    <div class="feature-card">
+      <h3>Fast Support</h3>
+      <p>Connect with our support team.</p>
     </div>
-    <div style="text-align:center;margin-top:40px" class="reveal">
-      <a href="https://wa.me/916290662261?text=Hi%2C%20I%20want%20to%20know%20more%20about%20investment%20plans" class="btn btn-whatsapp" target="_blank">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Chat on WhatsApp
+
+    <div class="feature-card">
+      <h3>Market Access</h3>
+      <p>Explore different financial markets.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>24/7 Support</h3>
+      <p>Contact options for customer assistance.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+
+  <div class="section-heading">
+
+    <span class="market-tag">GET STARTED</span>
+
+    <h2>How It Works</h2>
+
+  </div>
+
+
+  <div class="features-grid">
+
+    <div class="feature-card">
+      <h3>01. Choose a Plan</h3>
+      <p>Explore the available investment plans.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>02. Contact Us</h3>
+      <p>Connect with our team for details.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>03. Stay Updated</h3>
+      <p>Follow market activity and updates.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CLIENT RESULTS -->
+<section class="client-section">
+
+  <div class="section-heading">
+
+    <span class="market-tag">CLIENT RESULTS</span>
+
+    <h2>Recent Client Activity</h2>
+
+  </div>
+
+
+  <div class="client-table-wrapper">
+
+    <table class="client-table">
+
+      <thead>
+        <tr>
+          <th>Client Name</th>
+          <th>Market</th>
+          <th>Investment</th>
+          <th>Reported Result</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Bhoomi Tyagi</td>
+          <td>BTC/INR</td>
+          <td>₹2,000</td>
+          <td>₹35,000</td>
+        </tr>
+
+        <tr>
+          <td>Mohan Sharma</td>
+          <td>ETH/INR</td>
+          <td>₹5,000</td>
+          <td>₹66,499</td>
+        </tr>
+
+        <tr>
+          <td>Manisha Agarwal</td>
+          <td>SOL/INR</td>
+          <td>₹3,000</td>
+          <td>₹48,599</td>
+        </tr>
+
+        <tr>
+          <td>Rahul Verma</td>
+          <td>BTC/INR</td>
+          <td>₹5,000</td>
+          <td>₹72,000</td>
+        </tr>
+
+        <tr>
+          <td>Priya Singh</td>
+          <td>ETH/INR</td>
+          <td>₹2,000</td>
+          <td>₹28,500</td>
+        </tr>
+
+        <tr>
+          <td>Isha Sharma</td>
+          <td>Gold/INR</td>
+          <td>₹10,000</td>
+          <td>₹95,999</td>
+        </tr>
+
+        <tr>
+          <td>Tanvi Choudhary</td>
+          <td>BTC/INR</td>
+          <td>₹5,000</td>
+          <td>₹69,000</td>
+        </tr>
+
+        <tr>
+          <td>Aniket Singh</td>
+          <td>Gold/INR</td>
+          <td>₹2,000</td>
+          <td>₹27,200</td>
+        </tr>
+
+        <tr>
+          <td>Manoj Kumaar</td>
+          <td>BTC/INR</td>
+          <td>₹3,000</td>
+          <td>₹42,000</td>
+        </tr>
+
+        <tr>
+          <td>Nidhi Sharma</td>
+          <td>BTC/INR</td>
+          <td>₹5,000</td>
+          <td>₹71,500</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <p class="plan-disclaimer">
+    Client results are supplied figures and should be independently verified.
+  </p>
+
+</section>
+
+
+<!-- BOTTOM CONTACT -->
+<section class="bottom-contact" id="contact">
+
+  <div class="bottom-contact-inner">
+
+    <span class="market-tag">WE ARE HERE TO HELP</span>
+
+    <h2>Connect With Global Trading</h2>
+
+    <p>
+      Contact our support team through your preferred channel.
+    </p>
+
+
+    <div class="contact-options">
+
+      <a
+        href="https://wa.me/916290662261"
+        target="_blank"
+        rel="noopener"
+        class="contact-option whatsapp">
+
+        <span>☏</span>
+
+        <div>
+          <strong>WhatsApp</strong>
+          <small>Chat with us</small>
+        </div>
+
       </a>
+
+
+      <a
+        href="https://t.me/YOUR_TELEGRAM_USERNAME"
+        target="_blank"
+        rel="noopener"
+        class="contact-option telegram">
+
+        <span>➤</span>
+
+        <div>
+          <strong>Telegram</strong>
+          <small>Message us</small>
+        </div>
+
+      </a>
+
+
+      <a
+        href="mailto:YOUR_EMAIL@example.com"
+        class="contact-option email">
+
+        <span>✉</span>
+
+        <div>
+          <strong>Email</strong>
+          <small>Send us an email</small>
+        </div>
+
+      </a> 
+
     </div>
+<div class="support-note">
+  <span class="support-dot"></span>
+  24/7 Customer Support Available
+</div>
   </div>
+
 </section>
 
-<section class="cta">
-  <div class="container reveal">
-    <h2>Ready to Start Growing?</h2>
-    <p>Join Global Trading today and take control of your financial future.</p>
-    <a href="#plans" class="btn btn-primary">View Plans Now</a>
-  </div>
-</section>
 
-<footer>
+<!-- FOOTER -->
+<footer class="footer">
+
   <div class="container">
-    <p>© 2026 Global Trading. All rights reserved.</p>
-    <p style="margin-top:8px;font-size:.8rem;color:#555">Returns are projected based on market performance. Past performance is not a guarantee of future results.</p>
+
+    <a href="#" class="logo">
+      GLOBAL <span>TRADING</span>
+    </a>
+
+    <p>
+      © 2026 Global Trading. All Rights Reserved.
+    </p>
+
+    <a href="#home">Back to Top ↑</a>
+
   </div>
+
 </footer>
 
-<a href="https://wa.me/916290662261?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Global%20Trading" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+
+<!-- EXISTING WHATSAPP FLOATING BUTTON -->
+<a
+  href="https://wa.me/916290662261"
+  class="whatsapp-float"
+  target="_blank"
+  rel="noopener"
+  aria-label="Contact us on WhatsApp">
+  ☏
 </a>
 
+
+<!-- JAVASCRIPT -->
 <script src="script.js"></script>
+
 </body>
 </html>
